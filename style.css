@@ -1,71 +1,234 @@
 html {
-	height: 100%;
+    height: 100%;
 }
 
 body {
-  	margin: 0px;
-  	height: 100%;
-  	color: #ffecdb;
+    margin: 0px;
+    height: 100%;
+    color: #ffecdb;
 }
 
-h1{
-	margin-block-start: 0;
-	font-size: 30px;
+h1 {
+    margin-block-start: 0;
+    font-size: 30px;
 }
 
 p {
-	font-size: 1em;
+    font-size: 1em;
 }
 
 section {
-	padding: 20px 20px;
-	background-color: #076324;
-	height: 100%;
+    padding: 20px 20px;
+    background-color: #076324;
+    height: 100%;
 }
 
 #section2 {
-	display: none;
-	
+    display: none;
 }
 /*
 #section1{
 	
 }
 */
-input {
-	width: 10%;
-	background-color: transparent;
-	border: none;
-	border-bottom: 2px solid lightgreen;
+
+#main2 {
+	height: 100%;
 }
 
-input:hover{
-	border-bottom: 2px solid green;
+input {
+    width: 10%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid lightgreen;
 }
+
+input:hover {
+    border-bottom: 2px solid green;
+}
+
 input:focus {
-	outline: none;
-	border-bottom: 2px solid darkgreen;
+    outline: none;
+    border-bottom: 2px solid darkgreen;
+}
+
+#header {
+	height: 20%;
+	border: 1px solid white;
+	margin-bottom: 10px;
+	display: flex;
+}
+
+#footer {
+	height: 20%;
+	border: 1px solid white;
+	margin-top: 10px;
 }
 
 #pokerTable {
-	margin: auto;
-	display: flex;
-	width: 90%;
-	height: 50vh;
-	border: 2px solid white;
-	border-radius: 50%;
+    margin: auto;
+    display: flex;
+    width: 90%;
+    height: 50vh;
+    border: 2px solid white;
+    border-radius: 50%;
 }
+
 .card {
-	width: 15%;
-	height: 70%;
-	border: 1px solid white;
-	margin: auto 0px;
+    width: 120px;
+    height: 183px;
+    border: 1px solid white;
+    margin: 8% 0px;
+    border-radius: 10px;
 }
-#currentCard{
-	margin-left: auto;
-	margin-right: 5%;
+
+#currentCard {
+    position: absolute;
+    left: 0px;
+    margin-left: auto;
+    margin-right: 5%;
 }
+
 #nextCard {
-	margin-left: 5%;
-	margin-right: auto;
+    position: absolute;
+    left: 0px;
+    background-image: url("assets/card-back.png");
+    border-bottom: 4px solid #b71c1ced;
+    border-right: 2px solid #b71c1ced;
+    box-shadow: 2px 1px 2px #b71c1c;
+    margin-left: 5%;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+#nextCard .back {
+    width: 120px;
+    height: 183px;
+    position: absolute;
+
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    transition: all 2s ease-in-out;
+    -webkit-transition: all 2s ease-in-out;
+
+    border-radius: 10px;
+}
+
+#nextCard.flip .back {
+    -webkit-transform: rotateY(180deg);
+}
+
+#nextCard .front {
+    position: absolute;
+    left: 0px;
+    width: 120px;
+    height: 183px;
+
+    -webkit-transform: rotateY(-180deg);
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    transition: all 2s ease-in-out;
+    -webkit-transition: all 2s ease-in-out;
+
+    border-radius: 10px;
+}
+
+#nextCard.flip .front {
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+    border-radius: 10px;
+}
+
+#ncimgBack {
+    background-image: url("assets/card-back.png");
+    width: 120px;
+    height: 183px;
+    border-radius: 10px;
+}
+
+#ncimgFront {
+    background-image: url("assets/1D.png");
+    width: 120px;
+    height: 183px;
+    border-radius: 10px;
+}
+#ccimgBack {
+    background-image: url("assets/card-back.png");
+    width: 120px;
+    height: 183px;
+    border-radius: 10px;
+}
+
+#ccimgFront {
+    background-image: url("assets/1D.png");
+    width: 120px;
+    height: 183px;
+    border-radius: 10px;
+}
+
+.topDiv {
+	width: 33.3%;
+	height: 100%;
+}
+
+#div1 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#tmp {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+#div2{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#div3 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#welcomeName {
+	width: 100%;
+	text-align: center;
+}
+
+#balancePH {
+	display: inline-block;
+	position: relative;
+	border: 2px solid white;
+	height: 30%;
+	width: 30%;
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+}
+
+#balanceN {
+	display: inline-block;
+	position: relative;
+	border: 2px solid white;
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+	height: 30%;
+	width: 60%;
+}
+
+button {
+	background-color: transparent;
+	color: white;
+	font-size: 1.5em;
+	border: 2px solid white;
+	height: min-content;
+	width: min-content;
+	border-radius: 40px;
+	padding: 15px 30px;
 }
