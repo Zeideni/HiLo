@@ -1,31 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>HiLo Game</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <title>HiLo Game</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
-	<section id="section1">
-		<main id="main1">
-			<h1> Welcome!</h1>
-			<h3> Instructions:</h3>	
-			<h4>The aim of the game is to guess whether the Next Card in the Deck will be Higher or Lower than the Current Card.</h4>
-			<p>In this game, first you need to decide a bet, then guess the next card is higher or lower the Face Up Card. If you guess right, your balance increases, else, your balance decreases. Click on chips to choose how much you want to bet then click on "bet" to play. Bet wisely and have a good time in this casino game!</p>
 
-			<h3>But first:</h3>
-			<p>My name is <input type="text" id="username"> and I am ready for the challenge. <button id="play">Let's play!</button></p>
-		</main>
-	</section>
-	<section id="section2">
-		<main id="main2">
-			<div id="pokerTable">
-				<div class="card" id="currentCard"></div>
-				<div class="card" id="nextCard"></div>
-			</div>
-		</main>
-	</section>
-	<h1></h1>
-	<script src="jquery.js"></script>
-	<script src="main.js"></script>
+<body>
+    <section id="section1">
+        <main id="main1">
+            <h1> Welcome!</h1>
+            <h3> Instructions:</h3>
+            <h4>The aim of the game is to guess whether the Next Card in the Deck will be Higher or Lower than the Current Card.</h4>
+            <p>In this game, first you need to decide a bet, then guess the next card is higher or lower the Face Up Card. If you guess right, your balance increases, else, your balance decreases. Click on chips to choose how much you want to bet then click on "bet" to play. Bet wisely and have a good time in this casino game!</p>
+
+            <h3>But first:</h3>
+            <p>My name is <input type="text" id="username"> and I am ready for the challenge. <button id="play">Let's play!</button></p>
+        </main>
+    </section>
+    <section id="section2">
+        <main id="main2">
+        	<div id="header">
+        		<div class="topDiv" id="div1">
+        			<div id="tmp">
+	        			<div id="balancePH"></div>
+	        			<div id="balanceN"></div>
+	        		</div>
+        		</div>
+        		<div class="topDiv" id="div2">
+	        			<h1 id="welcomeName">test</h1>
+        		</div>
+        		<div class="topDiv" id="div3">
+        			<button id="stats">Statisctics</button>
+        		</div>
+        	</div>
+            <div id="pokerTable">
+                <div class="card" id="currentCard">
+                	<div class="front">
+                        <img id="ccimgFront">
+                    </div>
+                    <div class="back">
+                        <img id="ccimgBack">
+                    </div>
+                </div>
+                <div class="card" id="nextCard">
+                    <div class="front">
+                        <img id="ncimgFront">
+                    </div>
+                    <div class="back">
+                        <img id="ncimgBack">
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+            	<button id="start">Play game</button>
+            </div>
+        </main>
+    </section>
+    <h1></h1>
+    <script src="jquery.js"></script>
+    <script src="main.js"></script>
 </body>
+
 </html>
