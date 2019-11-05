@@ -87,6 +87,27 @@ input:focus {
     left: 0px;
     margin-left: auto;
     margin-right: 5%;
+    background-image: url("");
+}
+
+
+
+#currentCard .back {
+    width: 120px;
+    height: 183px;
+    position: absolute;
+
+    border-radius: 10px;
+}
+
+
+#currentCard .front2 {
+    position: absolute;
+    left: 0px;
+    width: 120px;
+    height: 183px;
+
+    border-radius: 10px;
 }
 
 #nextCard {
@@ -105,6 +126,7 @@ input:focus {
     width: 120px;
     height: 183px;
     position: absolute;
+    left: 0px;
 
     -webkit-transform: rotateX(0deg) rotateY(0deg);
     -webkit-transform-style: preserve-3d;
@@ -147,20 +169,14 @@ input:focus {
 }
 
 #ncimgFront {
-    background-image: url("assets/1D.png");
-    width: 120px;
-    height: 183px;
-    border-radius: 10px;
-}
-#ccimgBack {
-    background-image: url("assets/card-back.png");
+    background-image: url("");
     width: 120px;
     height: 183px;
     border-radius: 10px;
 }
 
 #ccimgFront {
-    background-image: url("assets/1D.png");
+    background-image: url("");
     width: 120px;
     height: 183px;
     border-radius: 10px;

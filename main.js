@@ -14,11 +14,21 @@ var $start= $('#start')
 var windowWidth = window.innerWidth
 var midMargin = (windowWidth / 100) * 5;
 var cardWidth = (windowWidth / 100) * (120/windowWidth)*100;
-var outerMargin = (windowWidth - 2*(midMargin + cardWidth))/2
-var $ccimgFront = $('#ccimgFront')
-var $ccimgBack = $('#ccimgBack')
-var $ncimgFront = $('#ncimgFront')
-var $ncimgBack = $('#ncimgBack')
+var outerMargin = (windowWidth - 2*(midMargin + cardWidth))/2;
+var $ccimgFront = $('#ccimgFront');
+var $ncimgFront = $('#ncimgFront');
+var $ncimgBack = $('#ncimgBack');
+var $higher = $('#higher');
+var $lower = $('#lower');
+var $equal = $('#equal');
+var $bet5 = $('#bet5')
+var $bet10 = $('#bet10')
+var $bet50 = $('#bet50')
+var $bet100 = $('#bet100')
+var $betAllIn = $('#betAllIn')
+var $balanceN = $('#balanceN');
+var $streak = $('#streak')
+var $highestStreak = $('#highestStreak')
 
 var leftCC = windowWidth/2 - midMargin - 3*cardWidth/2
 var leftNC = windowWidth/2 + midMargin - cardWidth/2
@@ -54,9 +64,14 @@ $playButton.on("click", function() {
     $h1.text("Hi " + userName + "!")
 
 })
+
+
 $start.on('click',function() {
 	playGame()
 })
+
+
+var input ="";
 
 // ----------------------- Main classes to be used by the game
 var suits = ["spades", "clubs", "heart", "diamonds"];
@@ -115,63 +130,166 @@ function generateRandomIndex(min, max) { // maximum not included
 
 function playGame() {
     var deck = Deck();
+    var balance = 1000;
+    $balanceN.html('<h3>'+ balance + '</h3>')
+    var bet = 0;
     console.log(deck)
     numberOfGames++
+
 
     deck.shuffle();
     var currentCard = deck.cards[0];
     var nextCard = deck.cards[1];
     var score = 0;
-
     var count = 0;
-    while (score < 52) {
-    	//$currentCard.css('background-image',"url(" + currentCard.url+")")
-    	$ncimgFront.css('background-image',"url(" + nextCard.url+")")
-    	$ccimgFront.css('background-image',"url(" + currentCard.url+")")
-    	$flip = $("#nextCard").toggleClass('flip');
-		$(".front").animate({ "left": "-=" + (midMargin*3+cardWidth)  +"px" }, "2000" );
-        //alert(currentCard.display());
-        //var input = window.prompt()
-        if (input === "Equal") {
-            if (nextCard.number === currentCard.number) {
-                count++
-                score += 10
+
+    return guess();
+
+    function guess(){
+       // while (balance>0){
+        	$ncimgFront.css('background-image',"url(" + currentCard.url+")")
+            $flip = $("#nextCard").toggleClass('flip');
+        	$(".front").animate({ "left": "-=" + (midMargin*3+cardWidth)  +"px" }, "2000" );
+            $(".back").animate({ "left": "-=" + (midMargin*3+cardWidth)  +"px" }, "2000" );
+
+            $bet5.on('click', function() {
+                if (balance-bet < 0){
+                    alert('You cannot bet more than your balance')
+                } else {
+                    bet += 5;
+                    balance -= 5;
+                    $balanceN.html('<h3>'+ balance + '</h3>')
+                }
+            })
+
+            $bet10.on('click', function() {
+                if (balance-bet < 0){
+                    alert('You cannot bet more than your balance')
+                } else {
+                    bet += 10;
+                    balance -= 10;
+                    $balanceN.html('<h3>'+ balance + '</h3>')
+                }
+            })
+
+            $bet50.on('click', function() {
+                if (balance-bet < 0){
+                    alert('You cannot bet more than your balance')
+                } else {                
+                    bet += 50;
+                    balance -= 50;
+                    $balanceN.html('<h3>'+ balance + '</h3>')
+                }
+            })
+        	
+            $bet100.on('click', function() {
+                if (balance-bet < 0){
+                    alert('You cannot bet more than your balance')
+                } else {                  
+                    bet += 100;
+                    balance -= 100;
+                    $balanceN.html('<h3>'+ balance + '</h3>')
+                }
+            })
+
+            $betAllIn.on('click', function() {
+                bet += balance;
+                balance = 0;
+                $balanceN.html('<h3>'+ balance + '</h3>')
+            })
+
+        	$higher.on('click', function(){
+                if (bet === 0) {
+                    alert("you need to make an initial bet")
+                } else {
+                    input="Higher";
+                    animate();
+                    check();
+                }
+        	})
+        	$lower.on('click', function(){
+                if (bet === 0) {
+                    alert("you need to make an initial bet")
+                } else {
+            		input="Lower";
+                    animate();
+            		check();
+                }
+        	})
+        	$equal.on('click', function(){
+                if (bet === 0) {
+                    alert("you need to make an initial bet")
+                } else {
+            		input="Equal";
+                    animate();
+            		check();
+                }
+        	})
+        	function animate(){
+                setTimeout(function(){ 
+                    $(".front").show();
+                    $(".back").show();
+                }, 1000);
+                setTimeout(function(){ $ccimgFront.css('background-image',"url(" + currentCard.url+")")}, 1000);
+                setTimeout(function(){ $ccimgFront.show()}, 1000);
+                setTimeout(function(){ 
+                    $(".front").hide();
+                    $(".back").hide();
+                }, 1000);
+
+                setTimeout(function(){ 
+                    $(".front").animate({ "left": "+=" + (midMargin*3+cardWidth)  +"px" }, "2000" );
+                    $(".back").animate({ "left": "+=" + (midMargin*3+cardWidth)  +"px" }, "2000" );
+                }, 4000);
+                setTimeout(function(){ $flip = $("#nextCard").toggleClass('flip');}, 4000);
+            }
+            function check(){
+                if (input === "Equal") {
+                    if (nextCard.number === currentCard.number) {
+                        alert("You guessed right")
+                        score ++;
+                        balance += 2*bet;
+                        
+                    } else {
+                        alert("You guessed wrong")
+                        scores.push(score);
+                        score = 0;;
+                    }
+                } else if (input === "Higher") {
+                    if (nextCard.number >= currentCard.number) {
+                        alert("You guessed right")
+                        score++;
+                        balance += 2*bet;
+                        
+                    } else {
+                        alert("You guessed wrong")
+                        scores.push(score);
+                        score = 0;
+                    }
+                } else if (input === "Lower") {
+                    if (nextCard.number <= currentCard.number) {
+                        alert("You guessed right")
+                        score++
+                        balance += 2*bet;
+                        
+                    } else {
+                        alert("You guessed wrong")
+                        scores.push(score);
+                        score = 0; 
+                    }
+                }
                 currentCard = deck.cards[count];
                 nextCard = deck.cards[count + 1];
+                count++;
+                bet =0;
+                $balanceN.html('<h3>'+ balance + '</h3>')
 
-            } else {
-             	alert("you lost . Your score is " + score)
-                scores.push(score)
-                break
+                $streak.html("<h3>" + score + "</h3>");
+                $highestStreak.html("<h3>" + getHighScore() + "</h3>");
             }
-        } else if (input === "higher") {
-            if (nextCard.number >= currentCard.number) {
-                count++
-                score++
-                currentCard = deck.cards[count];
-                nextCard = deck.cards[count + 1];
-
-            } else {
-                alert("you lost . Your score is " + score)
-                scores.push(score)
-                break
-            }
-        } else if (input === "lower") {
-            if (nextCard.number <= currentCard.number) {
-                score++
-                count++
-                currentCard = deck.cards[count];
-                nextCard = deck.cards[count + 1];
-
-            } else {
-                alert("you lost . Your score is " + score)
-                scores.push(score)
-                break
-            }
-        } else {
-            alert("invalid input")
         }
-    }
+        //alert ("You lost! press Play to play again!"
+    //}
 }
 
 // ----------------------- Statistics Functions
