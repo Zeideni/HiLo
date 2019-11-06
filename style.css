@@ -1,5 +1,6 @@
 html {
     height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -10,11 +11,22 @@ body {
 
 h1 {
     margin-block-start: 0;
-    font-size: 30px;
+    margin-block-end: 0;
+    font-size: 50px;
+    font-style: italic; 
+}
+
+
+h3 {
+    font-size: 1.5em;
 }
 
 p {
-    font-size: 1em;
+    font-size: 1.3em;
+}
+
+h4 {
+    font-size: 1.4em;
 }
 
 section {
@@ -26,21 +38,28 @@ section {
 #section2 {
     display: none;
 }
+
+
 /*
 #section1{
-	
+    
 }
 */
 
 #main2 {
-	height: 100%;
+    height: 100%;
 }
 
 input {
-    width: 10%;
+    width: 6%;
     background-color: transparent;
     border: none;
     border-bottom: 2px solid lightgreen;
+    font-size: .9em;
+    color: #feeede;
+    padding-left: 10px;
+    font-weight: bold;
+    font-style: italic; 
 }
 
 input:hover {
@@ -53,16 +72,15 @@ input:focus {
 }
 
 #header {
-	height: 20%;
-	border: 1px solid white;
-	margin-bottom: 10px;
-	display: flex;
+    height: 20%;
+    margin-bottom: 10px;
+    display: flex;
 }
 
 #footer {
-	height: 20%;
-	border: 1px solid white;
-	margin-top: 10px;
+    height: 20%;
+    margin-top: 10px;
+    display: flex;
 }
 
 #pokerTable {
@@ -90,23 +108,18 @@ input:focus {
     background-image: url("");
 }
 
-
-
 #currentCard .back {
     width: 120px;
     height: 183px;
     position: absolute;
-
     border-radius: 10px;
 }
-
 
 #currentCard .front2 {
     position: absolute;
     left: 0px;
     width: 120px;
     height: 183px;
-
     border-radius: 10px;
 }
 
@@ -127,13 +140,11 @@ input:focus {
     height: 183px;
     position: absolute;
     left: 0px;
-
     -webkit-transform: rotateX(0deg) rotateY(0deg);
     -webkit-transform-style: preserve-3d;
     -webkit-backface-visibility: hidden;
     transition: all 2s ease-in-out;
     -webkit-transition: all 2s ease-in-out;
-
     border-radius: 10px;
 }
 
@@ -146,13 +157,11 @@ input:focus {
     left: 0px;
     width: 120px;
     height: 183px;
-
     -webkit-transform: rotateY(-180deg);
     -webkit-transform-style: preserve-3d;
     -webkit-backface-visibility: hidden;
     transition: all 2s ease-in-out;
     -webkit-transition: all 2s ease-in-out;
-
     border-radius: 10px;
 }
 
@@ -183,68 +192,171 @@ input:focus {
 }
 
 .topDiv {
-	width: 33.3%;
-	height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 33.3%;
+    height: 100%;
 }
 
 #div1 {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #tmp {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
-#div2{
-	display: flex;
-	justify-content: center;
-	align-items: center;
+#div2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #div3 {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    display: relative;
 }
 
 #welcomeName {
-	width: 100%;
-	text-align: center;
+    width: 100%;
+    text-align: center;
 }
 
 #balancePH {
-	display: inline-block;
-	position: relative;
-	border: 2px solid white;
-	height: 30%;
-	width: 30%;
-	border-top-left-radius: 50px;
-	border-bottom-left-radius: 50px;
+    display: inline-block;
+    position: relative;
+    border: 2px solid white;
+    text-align-last: center;
+    height: 30%;
+    line-height: 0;
+    width: 30%;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
 }
 
 #balanceN {
-	display: inline-block;
-	position: relative;
-	border: 2px solid white;
-	border-top-right-radius: 50px;
-	border-bottom-right-radius: 50px;
-	height: 30%;
-	width: 60%;
+    display: inline-block;
+    position: relative;
+    border: 2px solid white;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    line-height: 0;
+    height: 30%;
+    text-align-last: center;
+    width: 60%;
 }
 
 button {
-	background-color: transparent;
-	color: white;
-	font-size: 1.5em;
-	border: 2px solid white;
-	height: min-content;
-	width: min-content;
-	border-radius: 40px;
-	padding: 15px 30px;
+    background-color: transparent;
+    color: white;
+    font-size: 1em;
+    border: 2px solid white;
+    border-radius: 40px;
+    padding: 15px 25px;
+    cursor: pointer;
+}
+
+button:hover {
+    color: #076324;
+    font-weight: bold;
+    background-color: white;
+}
+
+button:focus {
+    outline: none;
+}
+
+.bottomDiv {
+    width: 33.3%;
+    height: 100%;
+}
+
+#div11 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#div22 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#div33 {
+        display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chips {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    padding: auto;
+}
+
+#bet5 {
+    border: 3px dotted white;
+}
+
+#bet10 {
+    border:3px dotted  white;
+}
+
+#bet50 {
+    border:3px dotted white;
+}
+
+#bet100 {
+    border: 3px dotted white;
+}
+
+#betAllIn {
+    border: 3px dotted white;
+}
+
+.inner {
+    border-radius: 50%;
+    border: 3px inset;
+    height: auto;
+    width: auto;
+    padding: 10px;
+    box-shadow: 5px;
+}
+
+#a {
+    border-color: red;
+    background-color: red;
+    box-shadow: 5px 5px 5px #333333;
+}
+#z {
+    border-color: lightgreen;
+    background-color: green;
+    box-shadow: 5px 5px 5px #333333;
+}
+#e {
+    border-color: lightblue;
+    background-color: blue;
+    box-shadow: 5px 5px 5px #333333;
+}
+#r {
+    border-color: black;
+    background-color: black;
+    box-shadow: 5px 5px 5px #333333;
+}
+#t {
+    border-color: orange;
+    background-color: orange;
+    box-shadow: 5px 5px 5px #333333;
+}
+
+#topimg {
+    width: 100%;
+    height: auto;
 }
